@@ -1,0 +1,8 @@
+:quit
+exit
+(succ 9) + 14
+succ 9
+min 9 10
+:quit
+:quit
+quit
