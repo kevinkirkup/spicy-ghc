@@ -1,3 +1,24 @@
-:set prompt "\ESC[34m\x03BB> \ESC[m"
+-- vim: set filetype=haskell:
+:set prompt "\ESC[34mλ> \ESC[m"
+:set prompt2 "\ESC[34mλ|   \ESC[m"
 
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
+
+-- Set multiline mode
+:set +m
+
+-- Color Printing
+import IPPrint
+import Language.Haskell.HsColour
+import Language.Haskell.HsColour.Colourise
+import Language.Haskell.HsColour.Output
+
+--cpprint :: Show a => a -> IO ()
+--cpprint = putStrLn . hscolour (TTYg XTerm256Compatible) defaultColourPrefs False False "" False . pshow
+
+colours <- readColourPrefs
+let cpprint = putStrLn . hscolour (TTYg XTerm256Compatible) colours False False "" False . pshow
+
+:set -interactive-print=cpprint
+:def cp (\_ -> return ":set -interactive-print=cpprint")
+:def ncp (\_ -> return ":set -interactive-print=print")
