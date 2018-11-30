@@ -1,6 +1,14 @@
 -- vim: set filetype=haskell:
-:set prompt "\ESC[34mλ> \ESC[m"
-:set prompt2 "\ESC[34mλ|   \ESC[m"
+
+-- Previous
+-- :set prompt "\ESC[34m\x03BB> \ESC[m"
+
+-- Make sure you install the following two packages
+-- happy
+-- alex
+
+set prompt "\ESC[34mλ> \ESC[m"
+set prompt2 "\ESC[34mλ|   \ESC[m"
 
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
 
